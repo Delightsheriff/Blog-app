@@ -2,8 +2,8 @@ const express = require("express");
 require("dotenv").config();
 const envConstants = require("./configs/constants");
 const mongoose = require("mongoose");
-
 const app = express();
+app.use(express.json());
 
 app.get("/", async (req, res) => {
   return res.status(200).json({ message: "Welcome to my blog app api" });

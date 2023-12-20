@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const constants = require("../configs/constants");
 
 const BlogSchema = new Schema(
   {
@@ -13,7 +14,7 @@ const BlogSchema = new Schema(
     category: {
       type: String,
       required: true,
-      enum: ["health", "tech", "music"],
+      enum: constants.postCategories,
     },
     createdBy: {
       type: String,
