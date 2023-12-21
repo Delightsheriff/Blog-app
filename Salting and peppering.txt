@@ -1,0 +1,13 @@
+When we need salting and pepper in hashing:
+
+Hashing is the technique of converting plain text (such as a password) into a fixed-length string of characters that is difficult to reverse. Hashing is used for data security, such as storing passwords in a database or confirming data integrity.
+However, hashing is insufficient to keep attackers from cracking the hashes and recovering the original passwords. For example, if two users share the same password, their hashes will be the same. This makes it easier for attackers to find a match by using pre-computed tables of hashes and passwords (dubbed rainbow tables).
+
+We can use two ways to make hashing more secure: salting and peppering.
+
+1. SALTING: Before hashing a password, a random string (called a salt) is added to it. Even if two users have the same password, their hashes will be different since their salts are different. Salting also lengthens and complicates hashes, making them more difficult to crack using brute force or rainbow tables. Salts are typically maintained in the database with hashes so that they can be used to validate passwords later.
+
+2. PEPPERING: Before hashing a password, a secret string (called a pepper) is added to it. This is analogous to salting, except that the pepper is not recorded in the database and is only known to the application. This adds an extra layer of security since even if an attacker obtains access to the database and salts, they will still require the pepper to crack the hashes. Peppers are typically saved in a separate file or environment variable, and they should be changed on a regular basis.
+
+When we want to prevent sensitive data (such as passwords) from being revealed or stolen by attackers, we need salting and peppering in hashing. Salting and peppering strengthen hashing against common attacks such as brute force, rainbow tables, and database breaches.
+

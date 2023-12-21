@@ -1,0 +1,13 @@
+Authorization token, Refresh token
+(when do we need the refresh token and why do we need it, whats the usefulness of it)
+
+Authorization tokens and refresh tokens are two sorts of tokens used in web applications for authentication and authorization. A token is a string of characters containing data about the user and the programme, such as the user's identity, role, rights, and expiration time.
+
+1. Authorization Tokens: An authorization token (also known as an access token) is a token that is used to allow access to the application's protected resources such as APIs, data, or pages. The authorization token is typically sent in the HTTP header of the request and is validated by the server before granting access. To prevent unauthorised usage or theft, authorization tokens have a short lifespan, often ranging from a few minutes to an hour.
+
+2. Refresh Tokens: When an authorization token expires or becomes invalid, a refresh token is used to obtain a new one. The refresh token is typically issued in conjunction with the authorization token and is securely saved by the client (for example, in a cookie or local storage). To avoid frequent user login, refresh tokens have a longer lifespan, often ranging from a few days to a few months. The server can also withdraw the refresh token if necessary, such as when the user logs out or changes their password.
+
+When we want to develop a secure and user-friendly authentication and authorization system for our web application, we require the refresh token and the authorization token. The authorization and refresh tokens operate together to deliver the following advantages:
+1. They improve the application's user experience by preventing frequent user login, password input, or session timeout. The user simply needs to log in once to obtain the tokens, which may thereafter be used to access resources or renew access without user intervention.
+2. They improve application security by lowering the possibility of token leakage, replay attacks, or impersonation. If the authorization token is compromised, it can only be utilised for a limited period of time before expiring. If the refresh token is compromised, the server or the user can revoke it.
+3. They make application development and maintenance easier by separating the concerns of authentication and authorization. Different servers or services can produce and verify the authorization token and refresh token using different methods or standards, such as JWTt. This increases the application's modularity, scalability, and interoperability.
